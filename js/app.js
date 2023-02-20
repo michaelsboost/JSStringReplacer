@@ -9,7 +9,7 @@ if (!window.navigator || !window.navigator.clipboard) {
 }
 
 // toggle switch
-document.getElementById('switch').onchange = () => {
+document.getElementById('switch').onclick = () => {
   // if switch is checked
   if (document.getElementById('switch').checked) {
     document.querySelector('nav span').style.display = 'none';
