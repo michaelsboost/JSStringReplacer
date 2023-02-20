@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="light">
+  <head>
+    <title>JSStringReplacer</title>
+    <meta charset="utf-8">
+    <meta name="description" content="JSStringReplacer allows you to replace a string with whatever you want or even remove a line containing that string alltogether.">
+    <meta name="author" content="Michael Schwartz">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="JSStringReplacer">
+    <meta name="apple-mobile-web-app-title" content="JSStringReplacer">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="hsl(207, 31%, 11%)">
+    <meta name="msapplication-navbutton-color" content="hsl(207, 31%, 11%)">
+    <meta name="msapplication-starturl" content="./index.html">
+    <link rel="apple-touch-icon" href="imgs/logo.svg">
+    <link rel="icon" href="imgs/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <article>
+        <textarea id="input" style="resize: none;" placeholder="Paste here" onfocus="this.select(true)"></textarea>
+
+        <nav>
+          <input id="look" type="text" placeholder="String to search for.." onfocus="this.select(true)">
+          <span style="width: 4rem;">
+
+          </span>
+          <input id="replace" type="text" placeholder="String to replace with.." onfocus="this.select(true)">
+        </nav><br>
+
+        <label for="switch">
+          <input type="checkbox" id="switch" name="switch" role="switch">
+          Remove all lines containing string
+        </label><br>
+
+        <button id="convert">
+          Convert
+        </button>
+
+        <div style="margin-top: 2em; text-align: center;">
+          Made with ❤️ and ☕️ by <a class="white-text" href="http://michaelsboost.github.io/" target="_blank"><u>Michael Schwartz</u></a>
+        </div>
+      </article>
+    </main>
+
+    <label for="theme" class="theme">
+      <span id="icon">🌙</span>
+      <span class="hidden">
+        <input type="checkbox" id="theme">
+      </span>
+    </label>
+
+    <article id="notification" class="notification">copied to clipboard</article>
+  
+    <script>
+      // service worker for progressive web app
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>

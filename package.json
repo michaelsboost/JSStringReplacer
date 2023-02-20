@@ -1,0 +1,11 @@
+{
+  "name": "JSStringReplacer",
+  "version": "0.1",
+  "description": "JSStringReplacer allows you to replace a string with whatever you want or even remove a line containing that string alltogether.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server -p 1336 build -c-1"
+  },
+  "author": "Michael Schwartz",
+  "license": "MIT"
+}
