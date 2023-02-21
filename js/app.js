@@ -53,7 +53,7 @@ convert.onclick = () => {
   }, 1000);
 };
 
-theme.onclick = () => {
+theme.onchange = () => {
   // toggle theme
   const elm = document.querySelector('[data-theme]');
   (theme.checked) ? elm.setAttribute('data-theme', 'dark') : elm.setAttribute('data-theme', 'light');
@@ -68,5 +68,5 @@ theme.onclick = () => {
 if (localStorage.getItem('JSStringReplacer')) {
   appJSON = JSON.parse(localStorage.getItem('JSStringReplacer'));
   theme.checked = (appJSON.theme) ? true : false;
-  theme.onclick();
+  theme.onchange();
 }
