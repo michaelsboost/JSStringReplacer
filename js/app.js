@@ -9,7 +9,7 @@ if (!window.navigator || !window.navigator.clipboard) {
 }
 
 // toggle switch
-document.getElementById('switch').onclick = () => {
+document.getElementById('switch').onchange = () => {
   // if switch is checked
   if (document.getElementById('switch').checked) {
     document.querySelector('nav span').style.display = 'none';
@@ -31,7 +31,9 @@ convert.onclick = () => {
     let result = '';
     for (let i in lines) {
       let line = lines[i];
-      if (line.indexOf(look.value) < 1) {
+      if (line.indexOf(look.value) > -1) {
+        // ignore lines containing the string you're looking for
+      } else {
         result += line + "\n";
       }
     }
