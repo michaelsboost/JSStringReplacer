@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <html lang="en-US" data-theme="light">
   <head>
-    <title>JSStringReplacer</title>
+    <title>JSStringReplacer: Easily Replace Strings</title>
     <meta charset="utf-8">
-    <meta name="description" content="JSStringReplacer allows you to replace a string with whatever you want or even remove a line containing that string alltogether.">
+    <meta name="description" content="JSStringReplacer allows you to replace a string with whatever you want or even remove a line containing that string all-together.">
     <meta name="author" content="Michael Schwartz">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="manifest" href="manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="JSStringReplacer">
-    <meta name="apple-mobile-web-app-title" content="JSStringReplacer">
+    <meta name="apple-mobile-web-app-title" content="JSStringReplacer: Easily Replace Strings">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="hsl(207, 31%, 11%)">
     <meta name="msapplication-navbutton-color" content="hsl(207, 31%, 11%)">
     <meta name="msapplication-starturl" content="./index.html">
-    <meta property="og:url"         content="https://michaelsboost.com/JSStringReplacer" />
-    <meta property="og:type"        content="website" />
-    <meta property="og:title"       content="JSStringReplacer" />
-    <meta property="og:description" content="JSStringReplacer allows you to replace a string with whatever you want or even remove a line containing that string alltogether." />
     <link rel="apple-touch-icon" href="imgs/logo.svg">
     <link rel="icon" href="imgs/logo.svg" type="image/x-icon" />
-    <link rel="stylesheet" href="css/style.min.css" />
-    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>
-      <article>
-        <textarea id="input" style="resize: none;" placeholder="Paste here" onfocus="this.select(true)"></textarea>
+<main class="py-0 absolute inset-0 grid place-items-center">
+  <article class="my-0">
+    <textarea id="input" placeholder="Paste here" onfocus="this.select(true)" class="h-40 resize-none"></textarea>
 
-        <nav>
-          <input id="look" type="text" placeholder="String to search for.." onfocus="this.select(true)">
-          <span style="width: 4rem;">
+    <nav class="gap-2">
+      <input id="look" type="text" placeholder="String to search for.." onfocus="this.select(true)">
+      <input id="replace" type="text" placeholder="String to replace with.." onfocus="this.select(true)">
+    </nav>
 
-          </span>
-          <input id="replace" type="text" placeholder="String to replace with.." onfocus="this.select(true)">
-        </nav><br>
-
-        <label for="switch">
-          <input type="checkbox" id="switch" name="switch" role="switch">
-          Remove all lines containing string
-        </label><br>
-
-        <button id="convert">
-          Convert
-        </button>
-
-        <div style="margin-top: 2em; text-align: center;">
-          Made with ❤️ and ☕️ by <a class="white-text" href="http://michaelsboost.github.io/" target="_blank"><u>Michael Schwartz</u></a>
-        </div>
-      </article>
-    </main>
-
-    <label for="theme" class="theme">
-      <span id="icon">🌙</span>
-      <span class="hidden">
-        <input type="checkbox" id="theme">
-      </span>
+    <label for="switch" class="mb-4">
+      <input type="checkbox" id="switch" name="switch" role="switch">
+      Remove all lines containing string
     </label>
 
-    <article id="notification" class="notification">copied to clipboard</article>
+    <button id="convert">
+      Convert
+    </button>
+
+    <div class="text-center">
+      Made with ❤️ and ☕️ by <a href="http://michaelsboost.github.io/" target="_blank"><u>Michael Schwartz</u></a>
+    </div>
+  </article>
+</main>
+
+<button id="icon" class="fixed bottom-0 right-0 m-4 inline-block w-auto cursor-pointer bg-transparent border-none text-3xl">🌙</button>
+
+<article id="notification" class="fixed bottom-0 right-6 inline-block w-auto hidden">copied to clipboard</article>
   
-    <script>
-      // service worker for progressive web app
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js');
-        });
-      }
-    </script>
+    <script src="js/bundle.js"></script>
+      <script>
+        // service worker for progressive web app
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+      </script>
   </body>
 </html>

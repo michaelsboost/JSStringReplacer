@@ -1,6 +1,6 @@
 // project json
 let appJSON = {
-  theme: false
+  theme: true
 };
 
 // check if user can copy images in js
@@ -55,20 +55,30 @@ convert.onclick = () => {
   }, 1000);
 };
 
-theme.onchange = () => {
-  // toggle theme
+// toggle theme
+pickTheme = val => {
+  val = val.toString().toLowerCase();
   const elm = document.querySelector('[data-theme]');
-  (theme.checked) ? elm.setAttribute('data-theme', 'dark') : elm.setAttribute('data-theme', 'light');
-  (theme.checked) ? icon.textContent = '🌞' : icon.textContent = '🌙';
+
+  if (val === 'light') {
+    elm.setAttribute('data-theme', val);
+    icon.textContent = '🌙';
+    appJSON.theme = true;
+  }
+  if (val === 'dark') {
+    elm.setAttribute('data-theme', val);
+    icon.textContent = '🌞';
+    appJSON.theme = false;
+  }
 
   // remember theme in localStorage
-  appJSON.theme = (theme.checked) ? true : false;
   localStorage.setItem('JSStringReplacer', JSON.stringify(appJSON));
 };
+
+icon.onclick = () => { (appJSON.theme) ? pickTheme('dark') : pickTheme('light'); };
 
 // check localStorage
 if (localStorage.getItem('JSStringReplacer')) {
   appJSON = JSON.parse(localStorage.getItem('JSStringReplacer'));
-  theme.checked = (appJSON.theme) ? true : false;
-  theme.onchange();
+  (appJSON.theme) ? pickTheme('light') : pickTheme('dark');
 }
